@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+	<_name>LaserCut DXF</_name>
+	<id>org.makeict.output.lasercut_dxf</id>
+	<dependency type="extension">org.inkscape.output.svg.inkscape</dependency>
+	<dependency type="executable" location="extensions">lasercut-dxf.py</dependency>
+	<dependency type="executable" location="extensions">inkex.py</dependency>
+	<param name="tab" type="notebook">
+		<page name="options" _gui-text="Options">
+<!--				<_item value="25.4/90">mm</_item>-->
+			<param name="layer_option" type="enum" _gui-text="Layer export selection">
+				<_item value="all">All (default)</_item>
+				<_item value="visible">Visible only</_item>
+				<_item value="name">By name match</_item>
+			</param>
+			<param name="layer_name" type="string" _gui-text="Layer match name"></param>
+		</page>
+	</param>
+	<output>
+		<extension>.dxf</extension>
+		<mimetype>image/dxf</mimetype>
+		<_filetypename>LaserCut v5.3 DXF (*.dxf)</_filetypename>
+		<dataloss>true</dataloss>
+	</output>
+	<script>
+		<command reldir="extensions" interpreter="python">lasercut-dxf.py</command>
+		<helper_extension>org.inkscape.output.svg.inkscape</helper_extension>
+	</script>
+</inkscape-extension>
